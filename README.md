@@ -6,26 +6,31 @@ This repository contains my journey of learning data structures and algorithms i
 
 ```
 javascript-dsa/
-├── data-structures/     # Implementation of various data structures
-│   ├── arrays/
-│   ├── linked-lists/
-│   ├── stacks/
-│   ├── queues/
-│   ├── trees/
-│   ├── graphs/
-│   ├── hash-tables/
-│   └── heaps/
-├── algorithms/          # Algorithm implementations
-│   ├── sorting/
-│   ├── searching/
-│   ├── recursion/
-│   ├── dynamic-programming/
-│   └── greedy/
-├── problems/            # Coding problems and solutions
-│   ├── easy/
-│   ├── medium/
-│   └── hard/
-└── utils/              # Helper functions and utilities
+├── data-structures/          # Implementation of various data structures
+│   ├── arrays/              # Array implementations and operations
+│   ├── linked-lists/        # Singly and doubly linked lists
+│   ├── stacks/              # Stack implementation
+│   ├── queues/              # Queue implementations
+│   ├── trees/               # Binary trees, BST, AVL, etc.
+│   ├── graphs/              # Graph representations and traversals
+│   ├── hash-tables/         # Hash table implementations
+│   └── heaps/               # Min/Max heap implementations
+├── algorithms/               # Algorithm implementations
+│   ├── sorting/             # Sorting algorithms (bubble, merge, quick, etc.)
+│   ├── searching/           # Binary search, linear search, etc.
+│   ├── recursion/           # Recursive problem solutions
+│   ├── dynamic-programming/ # DP problems and solutions
+│   └── greedy/              # Greedy algorithm problems
+├── problem-solving-patterns/ # Common coding patterns
+│   ├── frequency-counter/   # Frequency counter pattern problems
+│   ├── multiple-pointers/   # Two pointer technique problems
+│   └── sliding-window/      # Sliding window pattern problems
+├── problems/                 # LeetCode & other coding problems
+│   ├── easy/                # Easy difficulty problems
+│   ├── medium/              # Medium difficulty problems
+│   └── hard/                # Hard difficulty problems
+├── big-o-notation/          # Time & space complexity examples
+└── utils/                   # Helper functions and utilities
 ```
 
 ## 🚀 Getting Started
@@ -38,26 +43,65 @@ javascript-dsa/
 
 ## 📝 Progress Tracking
 
-- [ ] Arrays
-- [ ] Linked Lists
-- [ ] Stacks
+### Data Structures
+- [x] Arrays - Basic implementation
+- [x] Linked Lists - Basic implementation
+- [x] Stacks - Basic implementation
 - [ ] Queues
 - [ ] Trees
 - [ ] Graphs
 - [ ] Hash Tables
 - [ ] Heaps
-- [ ] Sorting Algorithms
+
+### Algorithms
+- [x] Sorting Algorithms - Basic implementations
 - [ ] Searching Algorithms
 - [ ] Recursion
 - [ ] Dynamic Programming
 - [ ] Greedy Algorithms
 
+### Problem Solving Patterns
+- [x] Frequency Counter - 5 problems completed
+- [x] Multiple Pointers - 5 problems completed
+- [x] Sliding Window - 4 problems completed
+
+### Practice Problems
+- [x] Easy problems - In progress
+- [ ] Medium problems
+- [ ] Hard problems
+
 ## 🔧 How to Use
 
-Each data structure and algorithm folder contains:
-- `implementation.js` - The actual implementation
-- `examples.js` - Usage examples
-- `test.js` - Test cases
-- `README.md` - Theory and explanation
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Logesh6767/javascript-dsa.git
+   cd javascript-dsa
+   ```
+
+2. **Run any JavaScript file:**
+   ```bash
+   node path/to/file.js
+   ```
+
+3. **Example:**
+   ```bash
+   node problem-solving-patterns/frequency-counter/problem-1-array.js
+   ```
+
+## 📚 Learning Resources
+
+- Problem-solving patterns from coding bootcamps
+- LeetCode problems
+- Common interview questions
+- Algorithm optimization techniques
+
+## 🎯 Key Topics Covered
+
+- **Big O Notation** - Time and space complexity analysis
+- **Frequency Counter Pattern** - Using objects/maps to count occurrences
+- **Multiple Pointers** - Two-pointer technique for array problems
+- **Sliding Window** - Window-based solutions for subarrays/substrings
+- **Data Structure Implementations** - Building DSA from scratch
+- **Algorithm Analysis** - Understanding trade-offs and optimizations
 
 Happy coding! 🎯
