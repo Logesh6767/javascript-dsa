@@ -1,0 +1,22 @@
+{
+  "name": "javascript-dsa",
+  "version": "1.0.0",
+  "description": "Learning Data Structures and Algorithms in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run:example": "node",
+    "run:problem": "node problems/",
+    "run:ds": "node data-structures/",
+    "run:algo": "node algorithms/"
+  },
+  "keywords": [
+    "javascript",
+    "data-structures",
+    "algorithms",
+    "dsa",
+    "coding-problems"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
