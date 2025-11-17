@@ -46,6 +46,18 @@ const logMessage = function() {
     console.log('This is a message');
 };
 
+// Exercise 1: Solutions
+console.log('Exercise 1: Solutions')
+const multiplyArrow = (a, b) => a + b;
+console.log('multiplyArrow', multiplyArrow(1,2))
+
+const isEvenArrow = num => num % 2 === 0;
+console.log('isEvenArrow', isEvenArrow(6))
+
+const logMessageArrow = () => console.log('This is a message');
+console.log('logMessageArrow', logMessageArrow())
+console.log('Exercise 1: Ends!')
+
 // ============================================
 // PART 2: RETURNING OBJECTS
 // ============================================
@@ -59,7 +71,7 @@ const makePerson = (name, age) => ({ name, age });
 // Exercise 2: Create an arrow function that returns an object
 // TODO: Create a function 'makeUser' that takes username and email
 // and returns an object with these properties
-
+const makeUser = (username, email) => ({username, email});
 
 // ============================================
 // PART 3: THIS BINDING - THE BIG DIFFERENCE
@@ -122,7 +134,26 @@ class Counter {
 // Exercise 3: Test the counter
 // TODO: Create a Counter instance and test all three methods
 // const counter = new Counter();
-
+class Counter2 {
+    constructor(num, word) {
+        this.num = num
+        this.word = word
+    }
+    showNumber() {
+         console.log("show number", this.num)
+         setTimeout(() => {
+            console.log("show word", this. word)
+         }, 1000)
+    }
+    increamentNumber() {
+        this.num++
+        console.log("show number", this.num)
+    }
+}
+const counter1 = new Counter2(45645, 'four-five-six-four-five')
+counter1.showNumber()
+counter1.increamentNumber()
+// console.log(counter1)
 
 // ============================================
 // PART 5: WHEN NOT TO USE ARROW FUNCTIONS
@@ -182,6 +213,16 @@ const user = {
         });
     }
 };
+//My Answer:
+const userFix = {
+    name: 'Alice',
+    hobbies: ['reading', 'coding'],
+    showHobbies() {
+        this.hobbies.forEach(hobby => {
+            console.log(`${this.name} likes ${hobby}`);
+        });
+    }
+};
 
 
 // ============================================
@@ -207,14 +248,20 @@ const products = [
 ];
 
 // TODO: Get all product names
-const productNames = null;
+// const productNames = null;
+//Answer
+const productNames = products.map(product => product.name);
+console.log("productNames", productNames)
 
 // TODO: Get products under $600
-const affordable = null;
+// const affordable = null;
+const affordable = products.filter(product => product.price <= 600 );
+console.log("affordable", affordable)
 
 // TODO: Calculate total price
-const totalPrice = null;
-
+// const totalPrice = null;
+const totalPrice = products.reduce((total, product) => total + product.price, 0);
+console.log("totalPrice", totalPrice)
 
 // ============================================
 // PRACTICE PROBLEMS
@@ -226,7 +273,13 @@ const totalPrice = null;
  * Example: const double = multiplier(2); double(5) // 10
  */
 // TODO: Implement multiplier using arrow functions
-
+const multiplier = (num) => {
+    return (num2) => {
+        return num * num2
+    }
+}
+const double = multiplier(2);
+double(5) 
 
 /**
  * Problem 2: Fix the timer
@@ -245,7 +298,19 @@ class Timer {
         }, 1000);
     }
 }
+class TimerAnswer {
+    constructor() {
+        this.seconds = 0;
+    }
 
+    start() {
+        // TODO: Fix this using arrow function
+        setInterval(() => {
+            this.seconds++;
+            console.log(this.seconds);
+        }, 1000);
+    }
+}
 
 /**
  * Problem 3: Chain array operations
@@ -256,7 +321,10 @@ class Timer {
  */
 const nums = [5, 12, 8, 130, 44, 3, 15];
 // TODO: Implement using method chaining with arrow functions
-
+const answer = nums
+    .filter(num => num > 10)
+    .map(num => num ** 2)
+    .reduce((total, num) => total + num, 0)
 
 /**
  * Problem 4: Create a curry function
@@ -264,15 +332,39 @@ const nums = [5, 12, 8, 130, 44, 3, 15];
  * add(1)(2)(3) // 6
  */
 // TODO: Implement using arrow functions
-
-
+const add = (num) => {
+    return (num2) => {
+        return (num3) => {
+            return num + num2 + num3
+        }
+    }
+}
+const add2 = a => b => c => a + b + c
+add(1)(2)(3)
 // ============================================
 // INTERVIEW QUESTIONS
 // ============================================
 
 /**
  * Q1: What's the difference between arrow functions and regular functions?
- * Answer: [Write your answer here]
+ * Answer: 
+    * Syntax: Arrow functions use => syntax and are more concise. They support implicit returns for single expressions.
+
+    this binding:
+    Regular functions have their own this (dynamic, based on how they're called)
+    Arrow functions inherit this from parent scope (lexical binding)
+
+    arguments object:
+    Regular functions have access to arguments object
+    Arrow functions don't have arguments (use rest parameters instead)
+
+    Constructor:
+    Regular functions can be used with new keyword as constructors
+    Arrow functions cannot be constructors (will throw TypeError)
+
+    Use cases:
+    Arrow functions: callbacks, array methods, promises, when you need to preserve this
+    Regular functions: object methods, constructors, when you need dynamic this
  */
 
 /**
