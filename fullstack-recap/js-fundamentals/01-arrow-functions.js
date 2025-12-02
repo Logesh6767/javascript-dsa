@@ -369,17 +369,29 @@ add(1)(2)(3)
 
 /**
  * Q2: When should you NOT use arrow functions?
- * Answer: [Write your answer here]
+ * Answer: 
+ * 1. As object methods - arrow functions don't have their own 'this', so they can't access object properties
+ * 2. As constructors - arrow functions cannot be used with 'new' keyword
+ * 3. When you need the 'arguments' object - arrow functions don't have access to it
+ * 4. As event handlers when you need 'this' to refer to the element
+ * 5. In prototype methods - when you need dynamic 'this' binding
  */
 
 /**
  * Q3: What does 'this' refer to in an arrow function?
- * Answer: [Write your answer here]
+ * Answer: 
+ * In an arrow function, 'this' refers to the value of 'this' from the parent/enclosing scope 
+ * where the arrow function was defined (lexical scoping). Arrow functions don't have their own 
+ * 'this' - they inherit it from the surrounding context. This is called lexical 'this' binding.
  */
 
 /**
  * Q4: Can arrow functions be used as constructors? Why or why not?
- * Answer: [Write your answer here]
+ * Answer: 
+ * No, arrow functions cannot be used as constructors. When you try to use 'new' with an arrow 
+ * function, it will throw a TypeError. This is because arrow functions don't have their own 
+ * 'this' binding and don't have the internal [[Construct]] method that regular functions have, 
+ * which is required for constructor functions.
  */
 
 /**
@@ -398,8 +410,8 @@ const obj = {
         }, 100);
     }
 };
-// obj.regular(); // ?
-// obj.arrow();   // ?
+// obj.regular(); // error/undefined
+// obj.arrow();   // Object
 
 // ============================================
 // RUN YOUR CODE

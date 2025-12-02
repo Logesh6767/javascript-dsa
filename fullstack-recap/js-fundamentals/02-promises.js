@@ -79,6 +79,21 @@ function fetchPosts(userId) {
     // Should resolve with an array of posts after 1 second
     // Should reject if userId is not provided
 }
+// Answer
+function fetchPostsAnswer(userId) {
+    // Should resolve with an array of posts after 1 second
+    // Should reject if userId is not provided
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (userId > 0) {
+                resolve([1,2,3,4])
+            } else {
+                reject(new Error("Invalid UserId"))
+            }
+        }, 1000)
+        
+    })
+}
 
 
 // ============================================
@@ -135,7 +150,20 @@ function fetchComments(postId) {
 }
 
 // TODO: Chain fetchUser → fetchPosts → fetchComments
-
+// My Answer
+fetchUser(1)
+    .then(user => {
+        return fetchPosts(user.id)
+    })
+    .then(post => {
+        return fetchComments(post[0])
+    })
+    .then(comment => {
+        console.log(comment)
+    })
+    .catch(error => {
+        console.error("User not found!" + error)
+    })
 
 // ============================================
 // PART 4: ERROR HANDLING
@@ -172,6 +200,21 @@ function robustFetchUserData(userId) {
     // Should try to fetch user, posts, and comments
     // If user fetch fails, reject
     // If posts/comments fail, use empty arrays
+    return fetchUser(userId)
+        .then(user => {
+            return fetchPosts(user.id)
+        })
+        .catch(error => {
+            console.error("No Post Found!", error.message)
+            return []
+        })
+        .then(post => {
+            return fetchComments(post[0])
+        })
+        .catch(error => {
+            console.error("No Comments Found!", error.message)
+            return []
+        })
 }
 
 
