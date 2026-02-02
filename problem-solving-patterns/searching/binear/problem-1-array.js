@@ -23,29 +23,31 @@
 // ], 100) // -1
 
 function binarySearch(arr, val){
-    if (!arr) return -1
+    //a left pointer starts 0
     let left = 0
+    //a right pointer starts at the last index
     let right = arr.length - 1
-    for (let i = 0; i < arr.length; i++) {
-        console.log(left,i,right)
-        if((arr[left] - arr[right]) === val) {
-            console.log((arr[left] - arr[right]))
-            return i
-        } else if(arr[i] > arr[left]) {
-            left = i
-        } else {
-            right = i
+    
+    while (left <= right) {
+        //calculate middle index and round down
+        let middle = Math.floor((left + right) / 2)
+        
+        //if we found the value, return its index
+        if (arr[middle] === val) {
+            return middle
+        }
+        //if value is greater than middle, search right half
+        else if (arr[middle] < val) {
+            left = middle + 1
+        }
+        //if value is less than middle, search left half
+        else {
+            right = middle - 1
         }
     }
+    //value not found
     return -1
-    //loop through arr
-        //check if the middle value of the left and right is equal to current value
-            //if true return its index
-        //else check if the value is greater than left
-            //if true set the left as current index
-        //else
-            //decreament set the right as current index
-    //return -1    
 }
 
-console.log(binarySearch([1,2,3,4,5],2))
+
+console.log(binarySearch([1,2,3],3))
