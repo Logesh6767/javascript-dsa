@@ -20,4 +20,4 @@ function naiveSearch(long, short) {
     return count
 }
 
-console.log(naiveSearch("lorie loled", "lol"))
+console.log(naiveSearch("not noted", "not"))
